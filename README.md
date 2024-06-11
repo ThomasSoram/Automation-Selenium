@@ -1,1 +1,1 @@
-# Automation-Selenium
+We developed an automated test script to verify Facebook login functionality using Selenium WebDriver and Java. The project involved setting up the Selenium WebDriver environment, writing automated test cases, and validating the login process through browser automation.
