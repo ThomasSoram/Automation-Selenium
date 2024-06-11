@@ -1,0 +1,56 @@
+
+package hello;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Facebook {
+    public static void main(String[] args) {
+        // Set the path for the ChromeDriver executable
+        System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver-win64\\chromedriver.exe");
+        
+        // Initialize a new ChromeDriver session
+        WebDriver d = new ChromeDriver();
+        
+        try {
+            // Open Facebook
+            d.get("https://www.facebook.com/");
+            
+            // Maximize the browser window
+            d.manage().window().maximize();
+            
+             // Find the username and password fields and input elements 
+             // Enter username and password
+             // Click on the login button
+            d.findElement(By.name("email")).sendKeys("6009241921");
+        	d.findElement(By.name("pass")).sendKeys("sony@12345");
+        	d.findElement(By.name("login")).click();
+            
+            // Get the title of the page
+            String act = d.getTitle();
+            String exp = "Facebook";
+            
+            // Print the expected and actual titles
+            System.out.println("Expected Title: " + exp);
+            System.out.println("Actual Title: " + act);
+            
+            // Get and print the current URL
+            String currentURL = d.getCurrentUrl();
+            System.out.println("Current URL: " + currentURL);
+            
+            // Verify if the actual title matches the expected title
+            if (act.equals(exp)) {
+                System.out.println("Test case is Verified");
+            } else {
+                System.out.println("Test case is not Verified");
+            }
+        } catch (Exception e) {
+            // Handle any exceptions that occur
+            e.printStackTrace();
+        } finally {
+            // Close the browser
+            d.quit();
+        }
+    }
+}
